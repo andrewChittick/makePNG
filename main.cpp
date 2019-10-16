@@ -12,8 +12,8 @@ int main(){
 	//make a white 200 * 200
 	std::vector<unsigned char> picture (160000, 255);
 
-	//make some blue lines
-	for (int i=0; i<160000; i+=4){
+	for (int i=0; i<160000; i++){
+		//make a blue line(column)
 		if (i%400==0){
 			picture[i]=0;
 			picture[i+1]=0;
@@ -23,12 +23,49 @@ int main(){
 
 			picture[i+8]=0;
 			picture[i+9]=0;
+			
+			picture[i+12]=0;
+			picture[i+13]=0;
+		}
+		//make a red line(row)
+		if (i>80000 && i<83200){
+			if(i%4==1){
+				picture[i]=0;
+			}
+			if(i%4==2){
+				picture[i]=0;
+			}
 		}
 	}
-	encodeOneStep("poop.png", picture,200,200); 
+	encodeOneStep("sample.png", picture,200,200); 
 	return 0;
 }
 
+
+/*
+LodePNG Examples
+
+Copyright (c) 2005-2012 Lode Vandevenne
+
+This software is provided 'as-is', without any express or implied
+warranty. In no event will the authors be held liable for any damages
+arising from the use of this software.
+
+Permission is granted to anyone to use this software for any purpose,
+including commercial applications, and to alter it and redistribute it
+freely, subject to the following restrictions:
+
+    1. The origin of this software must not be misrepresented; you must not
+    claim that you wrote the original software. If you use this software
+    in a product, an acknowledgment in the product documentation would be
+    appreciated but is not required.
+
+    2. Altered source versions must be plainly marked as such, and must not be
+    misrepresented as being the original software.
+
+    3. This notice may not be removed or altered from any source
+    distribution.
+*/
 
 //Example 1
 //Encode from raw pixels to disk with a single function call
