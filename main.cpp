@@ -37,7 +37,9 @@ int main(){
 			}
 		}
 	}
+	//make a PNG
 	encodeOneStep("sample.png", picture,200,200); 
+
 	return 0;
 }
 
